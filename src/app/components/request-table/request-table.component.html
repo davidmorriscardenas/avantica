@@ -1,0 +1,40 @@
+<div class="p-3 mb-2 bg-primary text-white">{{title}} Requests</div>
+<table *ngIf="!loading && requestList.length > 0"
+  class="table mt-3 animated fadeIn faster animated fadeIn faster">
+<thead>
+  <tr>
+    <th scope="col">Date</th>
+    <th scope="col">Reason</th>
+    <th scope="col">Status</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let request of requestList; let i = index">
+    <td>{{ request.date }}</td>
+    <td>{{ request.reason }}</td>
+    <td>
+        <button *ngIf="request.status === 'Pending'" type="button" class="btn btn btn-dark">{{ request.status }}</button>
+        <button *ngIf="request.status === 'Approved'" type="button" class="btn btn-success">{{ request.status }}</button>
+        <button *ngIf="request.status === 'Denied'" type="button" class="btn btn-danger">{{ request.status }}</button>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+<div *ngIf="!loading && requestList.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster">
+  <h4 class="alert-heading">No hay registros</h4>
+  <p>
+    <i class="fa fa-exclamation fa-2x"></i>
+  </p>
+</div>
+
+<div *ngIf="loading" class="alert alert-info text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+    <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+    Espere por favor
+    </p>
+</div>
+

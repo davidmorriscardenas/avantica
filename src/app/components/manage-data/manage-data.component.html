@@ -1,0 +1,14 @@
+<h3 style="width: 18rem;">Manage Data</h3>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let entity of entityList; let i=index" class="list-group-item" (click)="onSelectEntity(entity.id)">
+            {{ entity.name }}
+        </li>
+    </ul>
+</div>
+<div *ngIf="entity !== null" class="card" style="margin-left : 350px; margin-top: -250px">
+    <div class="card-body">
+        <app-entity [entity]="entity" (refreshList)="onRefreshList($event)"></app-entity>
+    </div>
+</div>
+

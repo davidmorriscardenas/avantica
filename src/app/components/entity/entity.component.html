@@ -1,0 +1,26 @@
+<form>
+    <div class="form-group">
+        <div style="margin-top: -10px" class="float-right">
+                <button *ngIf="!isEditable" type="button" class="btn btn-success" (click)="onEditEntity()">Edit this</button>    
+                <button *ngIf="isEditable" type="button" class="btn btn-success" (click)="onSaveEntity()">Save</button>    
+        </div>        
+        <h2 *ngIf="!isEditable">{{entity.name}}</h2>
+        <label *ngIf="isEditable">Key name</label>        
+        <input *ngIf="isEditable" type="text" class="form-control" [(ngModel)]="entity.name" name="name">
+    </div>    
+    <div class="form-group">
+        <label>Description</label>
+        <label *ngIf="!isEditable" class="form-control" name="lblDescription">{{entity.description}}</label>        
+        <input *ngIf="isEditable" type="text" class="form-control" [(ngModel)]="entity.description" name="description">
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+        <label *ngIf="!isEditable" class="form-control" name="lblType">{{entity.type}}</label>        
+        <input *ngIf="isEditable" type="text" class="form-control" [(ngModel)]="entity.type" name="type">
+    </div>
+    <div class="form-group">
+        <label>Sensitivity</label>
+        <label *ngIf="!isEditable" class="form-control" name="lblSensitivity">{{entity.sensitivity}}</label>                
+        <input *ngIf="isEditable" type="text" class="form-control" [(ngModel)]="entity.sensitivity" name="sensitivity">
+    </div>    
+</form>

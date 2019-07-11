@@ -1,0 +1,17 @@
+<div>
+    <h3>Request</h3>
+    <tabset>
+      <tab heading="All" (selectTab)="onSelectTab($event)">
+        <app-request-table [title]="tabSelected" [requestList]="requestList" [loading]="loading"></app-request-table>
+      </tab>
+      <tab heading="Pending" (selectTab)="onSelectTab($event)">
+          <app-request-table [title]="tabSelected" [requestList]="requestList" [loading]="loading"></app-request-table>        
+      </tab>
+      <tab heading="Approved" (selectTab)="onSelectTab($event)">
+          <app-request-table [title]="tabSelected" [requestList]="requestList" [loading]="loading"></app-request-table>                
+      </tab>
+      <tab heading="Denied" (selectTab)="onSelectTab($event)">
+          <app-request-table [title]="tabSelected" [requestList]="requestList" [loading]="loading"></app-request-table>                        
+      </tab>
+    </tabset>
+</div>
